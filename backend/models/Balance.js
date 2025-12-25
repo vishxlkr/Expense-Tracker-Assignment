@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const balanceSchema = new mongoose.Schema(
    {
@@ -23,4 +23,4 @@ const balanceSchema = new mongoose.Schema(
 
 balanceSchema.index({ userId: 1, otherUserId: 1 }, { unique: true });
 
-module.exports = mongoose.model("Balance", balanceSchema);
+export default mongoose.model("Balance", balanceSchema);

@@ -1,8 +1,8 @@
-const Group = require("../models/Group");
-const User = require("../models/User");
-const asyncHandler = require("../middlewares/asyncHandler");
+import Group from "../models/Group.js";
+import User from "../models/User.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 
-exports.createGroup = asyncHandler(async (req, res) => {
+export const createGroup = asyncHandler(async (req, res) => {
    const { groupName, members, createdBy } = req.body;
 
    if (!groupName || !createdBy) {
@@ -44,7 +44,7 @@ exports.createGroup = asyncHandler(async (req, res) => {
    });
 });
 
-exports.addMember = asyncHandler(async (req, res) => {
+export const addMember = asyncHandler(async (req, res) => {
    const { groupId } = req.params;
    const { userId } = req.body;
 

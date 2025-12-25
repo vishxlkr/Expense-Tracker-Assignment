@@ -1,8 +1,8 @@
-const Balance = require("../models/Balance");
-const User = require("../models/User");
-const asyncHandler = require("../middlewares/asyncHandler");
+import Balance from "../models/Balance.js";
+import User from "../models/User.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 
-exports.getUserBalances = asyncHandler(async (req, res) => {
+export const getUserBalances = asyncHandler(async (req, res) => {
    const { userId } = req.params;
 
    const user = await User.findById(userId);
@@ -46,7 +46,7 @@ exports.getUserBalances = asyncHandler(async (req, res) => {
    });
 });
 
-exports.settleBalance = asyncHandler(async (req, res) => {
+export const settleBalance = asyncHandler(async (req, res) => {
    const { userId, otherUserId, amount } = req.body;
 
    if (!userId || !otherUserId || amount === undefined) {

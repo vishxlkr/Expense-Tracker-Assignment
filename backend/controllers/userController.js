@@ -1,7 +1,7 @@
-const User = require("../models/User");
-const asyncHandler = require("../middlewares/asyncHandler");
+import User from "../models/User.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 
-exports.createUser = asyncHandler(async (req, res) => {
+export const createUser = asyncHandler(async (req, res) => {
    const { name, email } = req.body;
 
    if (!name || !email) {
@@ -25,7 +25,7 @@ exports.createUser = asyncHandler(async (req, res) => {
    });
 });
 
-exports.getUserById = asyncHandler(async (req, res) => {
+export const getUserById = asyncHandler(async (req, res) => {
    const { id } = req.params;
 
    const user = await User.findById(id);

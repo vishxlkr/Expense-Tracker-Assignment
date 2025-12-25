@@ -1,8 +1,8 @@
-const Expense = require("../models/Expense");
-const Group = require("../models/Group");
-const User = require("../models/User");
-const Balance = require("../models/Balance");
-const asyncHandler = require("../middlewares/asyncHandler");
+import Expense from "../models/Expense.js";
+import Group from "../models/Group.js";
+import User from "../models/User.js";
+import Balance from "../models/Balance.js";
+import asyncHandler from "../middlewares/asyncHandler.js";
 
 const calculateSplits = (totalAmount, splitType, splitDetails, members) => {
    const splits = {};
@@ -64,7 +64,7 @@ const updateBalances = async (paidBy, splits, groupId) => {
    }
 };
 
-exports.addExpense = asyncHandler(async (req, res) => {
+export const addExpense = asyncHandler(async (req, res) => {
    const {
       description,
       totalAmount,
